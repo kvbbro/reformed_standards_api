@@ -79,7 +79,7 @@ largerCatechismWithScripture.map((item) => {
         bibleBooks[j.book].push({
           chapter: parseInt(j.verse.split(":")[0]),
           verse: j.verse.split(":")[1],
-          text: j.text,
+          /* text: j.text, */
           questionSection: {
             number: item.id,
             question: item.question,
@@ -97,5 +97,5 @@ largerCatechismWithScripture.map((item) => {
 Object.keys(bibleBooks).map((key) => {
   bibleBooks[key].sort((a, b) => a.chapter - b.chapter);
 });
-const newFilePath = "data/output/bible-dictionary.js";
+const newFilePath = "shorter2.js";
 createOutputOfFormattedArray(bibleBooks, newFilePath);

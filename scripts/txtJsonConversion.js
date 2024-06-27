@@ -6,7 +6,8 @@ const {
 const fs = require("fs");
 
 // Read the input file
-const inputFile = "data/raw_text/heidelbergCatechism.txt";
+const inputFile = "data/raw_text/westminsterShorterCatechism.txt";
+// const inputFile = "data/raw_text/heidelbergCatechism.txt";
 const numRegEx = /^\d+$/;
 const letterRegEx = /[A-Z]/;
 
@@ -48,6 +49,8 @@ fs.readFile(inputFile, "utf8", (err, data) => {
         sectionObj.answer = line;
       } else if (line.startsWith("(")) {
         sectionObj.proofTexts = line;
+      } else if (line.startsWith("[")) {
+        sectionObj.proofTexts = line;
       }
     }
 
@@ -56,6 +59,6 @@ fs.readFile(inputFile, "utf8", (err, data) => {
   });
 
   // Output the result as JSON
-  const outputFile = "data/formatting/output/heidelberg.js";
+  const outputFile = "data/formatting/output/shorter.js";
   createOutputOfFormattedArray(result, outputFile);
 });

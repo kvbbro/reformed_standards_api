@@ -1,5 +1,5 @@
 const axios = require("axios");
-const { shorterCatechism } = require("../data/standards/westminster");
+const {largerCatechism } = require("../data/standards/westminster");
 const { formattedArray } = require("../data/formatting/output/heidelberg11");
 const { createOutputOfFormattedArray } = require("../utilities/formatting");
 
@@ -15,7 +15,7 @@ function formatTime(seconds) {
   return `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
 }
 
-const array = formattedArray.slice(104, 129);
+const array = formattedArray.slice(1, 2);
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 

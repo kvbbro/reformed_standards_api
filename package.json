@@ -7,9 +7,11 @@
     "start": "node app.js",
     "server": "nodemon app.js",
     "convert-array": "node scripts/convertJSONFormat.js",
+    "convert-short": "node scripts/convertShorter.js",
     "script": "node scripts/run-script.js",
     "bible": "node scripts/addBibleText.js",
     "index": "node scripts/createBibleIndex.js",
+    "txt": "node scripts/txtJsonConversion.js",
     "sass": "sass --watch sass/style.scss public/css/style.css",
     "dev": "concurrently \"npm run server\" \"npm run sass\"",
     "test": "echo \"Error: no test specified\" && exit 1"
