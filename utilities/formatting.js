@@ -241,24 +241,27 @@ const convertProofTextVersesWithNoBook = (inputArray) => {
       ...item,
       proofTexts: item.proofTexts.map((i) => {
         return i.map((j, index) => {
-          console.log("checking " + j.book)
-         // const containsNoLetters = /^[^a-zA-Z]*$/.test(j.book);
-         // if (containsNoLetters) {
-           const splitBooks = j.book.split(";");
-           if (splitBooks.length > 1) {
+          console.log("checking " + j.book);
+          // const containsNoLetters = /^[^a-zA-Z]*$/.test(j.book);
+          // if (containsNoLetters) {
+          const splitBooks = j.book.split(";");
+          if (splitBooks.length > 1) {
             console.log(" handle split ");
-            const book = splitBooks[0].split(/ (?!.* )/)
+            const book = splitBooks[0].split(/ (?!.* )/);
             // Grab the previous strings book name
             //const book = i[index - 1].match(/^(.*?)\s*\d+:\d+/)[1];
             // Apply it to the no book name string that proceeds, which indicates there the same book reference
             //return `${book} ${j}`;
-            const both = [{book: book[0].trim(), verse: book[1].trim(), text: []},{book: book[0].trim(), verse: splitBooks[1].trim(), text: []}]
-            const ret = {...both}
-            return ret
+            const both = [
+              { book: book[0].trim(), verse: book[1].trim(), text: [] },
+              { book: book[0].trim(), verse: splitBooks[1].trim(), text: [] },
+            ];
+            const ret = { ...both };
+            return ret;
           }
-console.log(j)
-const book = splitBooks[0].split(/ (?!.* )/)
-          return {book: book[0].trim(), verse: book[1].trim(), text: []};
+          console.log(j);
+          const book = splitBooks[0].split(/ (?!.* )/);
+          return { book: book[0].trim(), verse: book[1].trim(), text: [] };
         });
       }),
     });
@@ -272,7 +275,7 @@ const convertProofTextVersesWithNoBookOrig = (inputArray) => {
       ...item,
       proofTexts: item.proofTexts.map((i) => {
         return i.map((j, index) => {
-          console.log("checking " + j.book)
+          console.log("checking " + j.book);
           const containsNoLetters = /^[^a-zA-Z]*$/.test(j.book);
           if (containsNoLetters) {
             // Grab the previous strings book name
@@ -296,7 +299,7 @@ const convertProofTextStringToObject = (inputArray) => {
       ...item,
       proofTexts: item.proofTexts.map((i) => {
         return i.map((j) => {
-          console.log(j)
+          console.log(j);
           const book = j.match(/^(.*?)\s*\d+:\d+/)[1];
           const verse = j.split(book)[1];
           return {
@@ -321,7 +324,7 @@ const convertBibleBookToFullName = (inputArray) => {
           return {
             book: bibleAbbreviationsToFullNameShorter[j.book],
             verse: j.verse,
-            text: j.text
+            text: j.text,
           };
         });
       }),

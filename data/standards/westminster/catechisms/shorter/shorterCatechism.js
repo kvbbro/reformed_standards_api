@@ -1499,7 +1499,7 @@ const shorterCatechism = [
     question: "How doth Christ execute the office of a prophet?",
     answer: [
       "Christ executeth the office of a prophet, in revealing to us, by his Word",
-      "and Spirit [b,] the will of God for our salvation",
+      "and Spirit, the will of God for our salvation",
     ],
     proofTexts: [
       [

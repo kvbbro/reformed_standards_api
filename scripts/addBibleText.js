@@ -1,6 +1,10 @@
 const axios = require("axios");
 const {largerCatechism } = require("../data/standards/westminster");
-const { formattedArray } = require("../data/formatting/output/heidelberg11");
+//const { formattedArray } = require("../data/formatting/output/heidelberg11");
+const {
+  formattedArray,
+} = require("../data/standards/westminster/catechisms/shorter/shorterCatechismFixedNoScripture.js");
+
 const { createOutputOfFormattedArray } = require("../utilities/formatting");
 
 function formatTime(seconds) {
@@ -116,7 +120,7 @@ const processArray = async () => {
       ); // Color 33: Yellow
     }
   }
-  const newFilePath = "data/formatting/output/heidelbergCatechism5.js";
+  const newFilePath = "data/formatting/output/shorterFixedWithScripture.js";
   createOutputOfFormattedArray(array, newFilePath);
 };
 
